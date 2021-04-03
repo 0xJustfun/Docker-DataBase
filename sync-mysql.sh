@@ -15,5 +15,5 @@ echo "\n导出数据库:"
 echo "mysqldump -h${FROM_HOST} -P${FROM_PORT} -u${FROM_U} -p${FROM_P} ${FROM_DBNAME} > ${FROM_DBNAME}.sql"
 
 echo "\n还原数据库:"
-echo "mysqldump -h${TO_HOST} -P${TO_PORT} -u${TO_U} -p${TO_P} ${TO_DBNAME} < ${FROM_DBNAME}.sql"
+echo "mysql -h${TO_HOST} -P${TO_PORT} -u${TO_U} -p${TO_P} ${TO_DBNAME} < ${FROM_DBNAME}.sql"
 echo ""
