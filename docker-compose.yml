@@ -34,6 +34,7 @@ services:
         volumes:
             - ./data/mysql:/var/lib/mysql
             - ./mysql/root:/root:ro
+            - ./mysql/conf:/etc/mysql/conf.d
         environment:
             - MYSQL_ROOT_PASSWORD=gRrcYm07lj7Q
 
