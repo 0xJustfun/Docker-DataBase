@@ -12,18 +12,18 @@ services:
             - ./data/redis:/data
         command: ["redis-server", "--appendonly", "yes","--requirepass","WI4p82wr0i3cSwn0"]
 
-    redis-commander:
-        restart: unless-stopped
-        image: rediscommander/redis-commander:latest
-        environment:
-            - REDIS_HOST=redis
-            - REDIS_PASSWORD=WI4p82wr0i3cSwn0
-            - HTTP_USER=root
-            - HTTP_PASSWORD=com.root.admin.123
-        ports:
-            - 56379:8081
-        depends_on:
-            - redis
+#     redis-commander:
+#         restart: unless-stopped
+#         image: rediscommander/redis-commander:latest
+#         environment:
+#             - REDIS_HOST=redis
+#             - REDIS_PASSWORD=WI4p82wr0i3cSwn0
+#             - HTTP_USER=root
+#             - HTTP_PASSWORD=com.root.admin.123
+#         ports:
+#             - 56379:8081
+#         depends_on:
+#             - redis
 
     mysql:
         restart: unless-stopped
@@ -39,16 +39,16 @@ services:
             - MYSQL_ROOT_PASSWORD=gRrcYm07lj7Q
             - MYSQL_DATABASE=really_vpn
 
-    phpmyadmin:
-        restart: unless-stopped
-        image: phpmyadmin/phpmyadmin
-        container_name: phpmyadmin
-        ports:
-            - '53306:80'
-        environment:
-            PMA_ARBITRARY: 1
-        depends_on:
-            - mysql
+#     phpmyadmin:
+#         restart: unless-stopped
+#         image: phpmyadmin/phpmyadmin
+#         container_name: phpmyadmin
+#         ports:
+#             - '53306:80'
+#         environment:
+#             PMA_ARBITRARY: 1
+#         depends_on:
+#             - mysql
 
     mongo:
         hostname: mongo
@@ -69,20 +69,20 @@ services:
             - ./data/mongo/config:/data/configdb
 
 
-    mongo-express:
-        container_name: mongo-express
-        image: mongo-express:0.49.0
-        restart: unless-stopped
-        ports:
-            - 57017:8081
-        environment:
-            ME_CONFIG_MONGODB_SERVER: 'mongo'
-            ME_CONFIG_MONGODB_ADMINUSERNAME: root
-            ME_CONFIG_MONGODB_ADMINPASSWORD: gRrcYm07lj7Q
+#     mongo-express:
+#         container_name: mongo-express
+#         image: mongo-express:0.49.0
+#         restart: unless-stopped
+#         ports:
+#             - 57017:8081
+#         environment:
+#             ME_CONFIG_MONGODB_SERVER: 'mongo'
+#             ME_CONFIG_MONGODB_ADMINUSERNAME: root
+#             ME_CONFIG_MONGODB_ADMINPASSWORD: gRrcYm07lj7Q
 
             
-            ME_CONFIG_BASICAUTH_USERNAME: root
-            ME_CONFIG_BASICAUTH_PASSWORD: com.root.admin.123
-        depends_on:
-          - mongo
+#             ME_CONFIG_BASICAUTH_USERNAME: root
+#             ME_CONFIG_BASICAUTH_PASSWORD: com.root.admin.123
+#         depends_on:
+#           - mongo
 
