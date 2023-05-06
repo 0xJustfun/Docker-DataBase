@@ -9,7 +9,7 @@ services:
             - 6379:6379
         container_name: redis
         volumes:
-            - ./data/redis:/data
+            - /data/docker/DataBase-Data/redis:/data
         command: ["redis-server", "--appendonly", "yes","--requirepass","WI4p82wr0i3cSwn0"]
 
 #     redis-commander:
@@ -32,7 +32,7 @@ services:
         ports:
             - 3306:3306
         volumes:
-            - ./data/mysql:/var/lib/mysql
+            - /data/docker/DataBase-Data/mysql:/var/lib/mysql
             - ./mysql/root:/root:ro
             - ./mysql/conf:/etc/mysql/conf.d
         environment:
@@ -65,8 +65,8 @@ services:
             - 27017:27017
         volumes:
             - ./mongo/root:/root:ro
-            - ./data/mongo/volume:/data/db
-            - ./data/mongo/config:/data/configdb
+            - /data/docker/DataBase-Data/mongo/volume:/data/db
+            - /data/docker/DataBase-Data/mongo/config:/data/configdb
 
 
 #     mongo-express:
