@@ -16,3 +16,7 @@ binlog_cache_size = 4m
 
 max_binlog_cache_size = 512m
 #最大binlog缓存大小
+
+
+default-time-zone='+08:00'
+#默认时区
